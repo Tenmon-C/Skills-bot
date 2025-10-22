@@ -15,33 +15,45 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 public class Auto extends Base {
 int LWheelCorrection;
 int RWheelCorrection;
+boolean sensor;
 
     @Override
     public void runOpMode() throws InterruptedException {
         telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
+
         initHardware();
 
     waitForStart();
-    while(opModeIsActive()){
+    while(opModeIsActive()) {
+        T();
+        if (sensor) {
+            while (getDistance() > 20) {
+                double x = getDistance();
+                telemetry.addData("Distance:", x);
+                telemetry.update();
+                LWheelCorrection += 10;
+                RWheelCorrection += 10;
+                LeftWheel.setTargetPosition(LWheelCorrection);
+                RightWheel.setTargetPosition(RWheelCorrection);
+            }
+            sensor = false;
+        }
+        else if(!sensor) {
+            ResetMotorEncoders();
 
-        while(getDistance() > 20){
-            double x = getDistance();
-            telemetry.addData("Distance:", x);
-            telemetry.update();
-            LWheelCorrection += 10;
-            RWheelCorrection += 10;
-            LeftWheel.setTargetPosition(LWheelCorrection);
-            RightWheel.setTargetPosition(RWheelCorrection);
+            RightWheel.setTargetPosition(-200);
+            LeftWheel.setTargetPosition(200);
+
+
+
+
 
 
         }
-        ResetMotorEncoders();
 
 
-        telemetry.addData("RightWheel:",RightWheel);
-        telemetry.addData("LeftWheel:",LeftWheel);
-        telemetry.addData("Arm:",Arm);
-        telemetry.update();
+
     }
     }
-}
+    }
+

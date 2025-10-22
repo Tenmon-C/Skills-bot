@@ -63,4 +63,12 @@ return TwoMeter_Sensor.getDistance(DistanceUnit.INCH);
         LeftWheel.setMode(DcMotor.RunMode.RUN_TO_POSITION); //put motor in run to target mode
         LeftWheel.setPower(0.3);
     }
+    public void T(){
+        telemetry.addData("RightWheel:", RightWheel);
+        telemetry.addData("LeftWheel:", LeftWheel);
+        telemetry.addData("Arm:", Arm);
+        telemetry.update();
+
+
+    }
 }
