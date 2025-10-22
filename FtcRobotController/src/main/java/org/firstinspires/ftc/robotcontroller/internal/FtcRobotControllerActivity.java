@@ -301,7 +301,6 @@ public class FtcRobotControllerActivity extends Activity
     eventLoop = null;
 
     setContentView(R.layout.activity_ftc_controller);
-
     preferencesHelper = new PreferencesHelper(TAG, context);
     preferencesHelper.writeBooleanPrefIfDifferent(context.getString(R.string.pref_rc_connected), true);
     preferencesHelper.getSharedPreferences().registerOnSharedPreferenceChangeListener(sharedPreferencesListener);
@@ -466,7 +465,6 @@ public class FtcRobotControllerActivity extends Activity
   protected void onDestroy() {
     super.onDestroy();
     RobotLog.vv(TAG, "onDestroy()");
-
     shutdownRobot();  // Ensure the robot is put away to bed
     if (callback != null) callback.close();
 
