@@ -1,13 +1,18 @@
 package org.firstinspires.ftc.teamcode;
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
-
+import org.firstinspires.ftc.teamcode.Ex;
+import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
+import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.robotcore.external.navigation.YawPitchRollAngles;
 
-
+@Disabled
 @Autonomous (name = "Auto")
 public class Auto extends Base {
 
@@ -15,37 +20,29 @@ public class Auto extends Base {
     int RWheelCorrection;
     boolean sensor = true;
 
+    boolean turn = false;
     @Override
     public void runOpMode() throws InterruptedException {
         telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
         initHardware();
-
         while (!isStarted()) {
             T();
-            telemetry.addData("Mode","waiting for start");
-            telemetry.addData("IMU Calibration Status", imu.getRobotYawPitchRollAngles().toString());
-            telemetry.update();
+            RightWheel.setPower(0);
+            LeftWheel.setPower(0);
+            Arm.setPower(0);
         }
 
         waitForStart();
-
+        ResetMotorEncoders();
+        Arm.setPower(0.5);
         Sensor();
         ResetMotorEncoders();
 
-        RightWheel.setTargetPosition(-400);
-        LeftWheel.setTargetPosition(400);
-        while (RightWheel.getCurrentPosition() > RightWheel.getTargetPosition()) {
-        }
-        RightWheel.setPower(0);
-        LeftWheel.setPower(0);
 
         while (opModeIsActive()) {
             T();
-            YawPitchRollAngles robotOrientation = imu.getRobotYawPitchRollAngles();
-            double yawAngle = robotOrientation.getYaw(AngleUnit.RADIANS);
-            telemetry.addData("Yaw (Radians)", "%.2f", yawAngle);
-            telemetry.update();
         }
+
 
     }
 
@@ -59,12 +56,15 @@ public class Auto extends Base {
                 RWheelCorrection += 10;
                 LeftWheel.setTargetPosition(LWheelCorrection);
                 RightWheel.setTargetPosition(RWheelCorrection);
+
             }
         } else {
             sensor = false;
         }
     }
-}
+        }
+
+
 
 
 

@@ -27,7 +27,9 @@ public abstract class Base extends LinearOpMode {
     DcMotorEx LeftWheel;
     Servo RightClaw;
     Servo LeftClaw;
-    IMU imu;
+
+    double targetAngle = 90;
+    double tolerance = 5;
 
     public void initHardware(){
         TwoMeter_Sensor = hardwareMap.get(DistanceSensor.class,"Sensor");
@@ -36,31 +38,27 @@ public abstract class Base extends LinearOpMode {
         Arm = hardwareMap.get(DcMotorEx.class,"Arm");
         RightClaw = hardwareMap.get(Servo.class,"RightClaw");
         LeftClaw = hardwareMap.get(Servo.class,"LeftClaw");
-        imu = hardwareMap.get(IMU.class,"Imu");
+
 
         Arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         Arm.setTargetPosition(0); //shouldn't be necessary but just in case
         Arm.setPower(0);//shouldn't be necessary but just in case
         Arm.setMode(DcMotor.RunMode.RUN_TO_POSITION); //put motor in run to target mode
         Arm.setPower(0.5);
+        LeftWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        RightWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
+        LeftWheel.setDirection(DcMotorSimple.Direction.FORWARD);
         RightWheel.setDirection(DcMotorSimple.Direction.REVERSE);
-        RightWheel.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        RightWheel.setTargetPosition(0); //shouldn't be necessary but just in case
-        RightWheel.setPower(0);//shouldn't be necessary but just in case
-        RightWheel.setMode(DcMotor.RunMode.RUN_TO_POSITION); //put motor in run to target mode
-        RightWheel.setPower(0.3);
+        LeftWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        RightWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        LeftWheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        RightWheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        LeftWheel.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        LeftWheel.setTargetPosition(0); //shouldn't be necessary but just in case
-        LeftWheel.setPower(0);//shouldn't be necessary but just in case
-        LeftWheel.setMode(DcMotor.RunMode.RUN_TO_POSITION); //put motor in run to target mode
-        LeftWheel.setPower(0.3);
+        LeftClaw.setDirection(Servo.Direction.REVERSE);
+        RightClaw.setPosition(0.55);
+        LeftClaw.setPosition(0.55);
 
-        RevHubOrientationOnRobot.LogoFacingDirection logoFacingDirection = RevHubOrientationOnRobot.LogoFacingDirection.RIGHT;
-        RevHubOrientationOnRobot.UsbFacingDirection usbFacingDirection = RevHubOrientationOnRobot.UsbFacingDirection.BACKWARD;
-        RevHubOrientationOnRobot orientationOnRobot = new RevHubOrientationOnRobot(logoFacingDirection,usbFacingDirection);
-        imu.initialize(new IMU.Parameters(orientationOnRobot));
     }
 
 public double getDistance(){
@@ -68,18 +66,17 @@ return TwoMeter_Sensor.getDistance(DistanceUnit.INCH);
 }
 
     public void ResetMotorEncoders(){
-        RightWheel.setDirection(DcMotorSimple.Direction.REVERSE);
         RightWheel.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         RightWheel.setTargetPosition(0); //shouldn't be necessary but just in case
         RightWheel.setPower(0);//shouldn't be necessary but just in case
         RightWheel.setMode(DcMotor.RunMode.RUN_TO_POSITION); //put motor in run to target mode
-        RightWheel.setPower(0.3);
+        RightWheel.setPower(0);
 
         LeftWheel.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         LeftWheel.setTargetPosition(0); //shouldn't be necessary but just in case
         LeftWheel.setPower(0);//shouldn't be necessary but just in case
         LeftWheel.setMode(DcMotor.RunMode.RUN_TO_POSITION); //put motor in run to target mode
-        LeftWheel.setPower(0.3);
+        LeftWheel.setPower(0);
     }
     public void T(){
         telemetry.addData("RightWheel", RightWheel.getCurrentPosition());
