@@ -71,20 +71,20 @@ return TwoMeter_Sensor.getDistance(DistanceUnit.INCH);
         RightWheel.setPower(0);//shouldn't be necessary but just in case
         RightWheel.setMode(DcMotor.RunMode.RUN_TO_POSITION); //put motor in run to target mode
         RightWheel.setPower(0);
+        RightWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         LeftWheel.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         LeftWheel.setTargetPosition(0); //shouldn't be necessary but just in case
         LeftWheel.setPower(0);//shouldn't be necessary but just in case
         LeftWheel.setMode(DcMotor.RunMode.RUN_TO_POSITION); //put motor in run to target mode
         LeftWheel.setPower(0);
+        LeftWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
     public void T(){
         telemetry.addData("RightWheel", RightWheel.getCurrentPosition());
         telemetry.addData("LeftWheel", LeftWheel.getCurrentPosition());
         telemetry.addData("Arm", Arm.getCurrentPosition());
         telemetry.update();
-
-
     }
 
 
