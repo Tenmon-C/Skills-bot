@@ -48,8 +48,8 @@ public abstract class Base extends LinearOpMode {
         LeftWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         RightWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        LeftWheel.setDirection(DcMotorSimple.Direction.FORWARD);
-        RightWheel.setDirection(DcMotorSimple.Direction.REVERSE);
+        LeftWheel.setDirection(DcMotorSimple.Direction.REVERSE);
+        RightWheel.setDirection(DcMotorSimple.Direction.FORWARD);
         LeftWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         RightWheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         LeftWheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);

@@ -21,7 +21,7 @@ public class Ex extends Base {
     int test = 0;
     int LWheelCorrection;
     int RWheelCorrection;
-    static final double COUNTS_PER_MOTOR_REV = 720;
+    static final double COUNTS_PER_MOTOR_REV = 1680;
     static final double DRIVE_GEAR_REDUCTION = 1;
     static final double WHEEL_DIAMETER_INCHES = 4.0;
     static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) / (WHEEL_DIAMETER_INCHES * 3.1415);
@@ -43,47 +43,47 @@ public class Ex extends Base {
 
         telemetry.addData("Step 1","Driving Forward");
         telemetry.update();
-        drive(33.8,0.2);
+        drive(33.8,0.3);
         TelemeryClear();
 
         telemetry.addData("Step 2","Turning Right");
         telemetry.update();
-        turnTo(-90,0.1);
+        turnTo(-90,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 3","Driving Forward");
         telemetry.update();
-        drive(25,0.2);
+        drive(25,0.3);
         TelemeryClear();
 
         telemetry.addData("Step 4","Turning Right");
         telemetry.update();
-        turnTo(-180,0.1);
+        turnTo(-180,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 5","Driving Forward");
         telemetry.update();
-        drive(25,0.2);
+        drive(25,0.3);
         TelemeryClear();
 
         telemetry.addData("Step 6","Turning Right");
         telemetry.update();
-        turnTo(-270,0.1);
+        turnTo(-270,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 7","Driving Forward");
         telemetry.update();
-        drive(18,0.2);
+        drive(18,0.3);
         TelemeryClear();
 
         telemetry.addData("Step 8","Turning Left");
         telemetry.update();
-        turnTo(-180,0.1);
+        turnTo(-180,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 7","Driving Forward");
         telemetry.update();
-        drive(64,0.2);
+        drive(64,0.3);
         sleep(1000);
         ClawPos(.4);
         Arm.setTargetPosition(60);
@@ -91,12 +91,12 @@ public class Ex extends Base {
 
         telemetry.addData("Step 8","Turning Left");
         telemetry.update();
-        turnTo(-90,0.1);
+        turnTo(-90,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 9","Drive Forward");
         telemetry.update();
-        drive(10,0.2);
+        drive(10,0.3);
         Arm.setTargetPosition(0);
         sleep(800);
         ClawPos(.55);
@@ -104,17 +104,17 @@ public class Ex extends Base {
 
         telemetry.addData("Step 10","Driving Backwards");
         telemetry.update();
-        drive(-10, 0.2);
+        drive(-10, 0.3);
         TelemeryClear();
 
         telemetry.addData("Step 11","Turning Left");
         telemetry.update();
-        turnTo(0,0.1);
+        turnTo(0,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 12","Driving Forward");
         telemetry.update();
-        drive(64,0.2);
+        drive(64,0.3);
         TelemeryClear();
         ClawPos(0.4);
         sleep(800);
@@ -122,23 +122,23 @@ public class Ex extends Base {
 
         telemetry.addData("Step 13","Turning Right");
         telemetry.update();
-        turnTo(-180,0.1);
+        turnTo(-180,0.2);
         Arm.setTargetPosition(80);
         TelemeryClear();
 
         telemetry.addData("Step 14","Driving Forward");
         telemetry.update();
-        drive(64,0.2);
+        drive(64,0.3);
         TelemeryClear();
 
         telemetry.addData("Step 15","Turning Left");
         telemetry.update();
-        turnTo(-90,0.1);
+        turnTo(-90,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 16", "Driving forward");
         telemetry.update();
-        drive(10,0.2);
+        drive(10,0.3);
         Arm.setTargetPosition(0);
         sleep(500);
         ClawPos(0.55);
@@ -146,27 +146,27 @@ public class Ex extends Base {
         
         telemetry.addData("Step 17","Driving Backwords");
         telemetry.update();
-        drive(-10,0.2);
+        drive(-10,0.3);
         TelemeryClear();
 
         telemetry.addData("Step 18","Turning Left");
         telemetry.update();
-        turnTo(-0,0.1);
+        turnTo(-0,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 19","Driving Forward");
         telemetry.update();
-        drive(17.75,0.2);
+        drive(17.75,0.3);
         TelemeryClear();
 
         telemetry.addData("Step 20","Turning Right");
         telemetry.update();
-        turnTo(-90,0.1);
+        turnTo(-90,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 21", "Driving Forward");
         telemetry.update();
-        drive(7,0.2);
+        drive(7,0.3);
         TelemeryClear();
         ClawPos(0.4);
         sleep(500);
@@ -174,40 +174,40 @@ public class Ex extends Base {
 
         telemetry.addData("Step 22", "Turning Left");
         telemetry.update();
-        turnTo(90,0.1);
+        turnTo(90,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 23","Driving Forward");
         telemetry.update();
         Arm.setTargetPosition(100);
-        drive(17,0.2);
+        drive(17,0.3);
         TelemeryClear();
         ClawPos(0.55);
 
         telemetry.addData("Step 24","Driving Backwords");
         telemetry.update();
-        drive(-10,0.2);
+        drive(-10,0.3);
         Arm.setTargetPosition(0);
         TelemeryClear();
 
         telemetry.addData("Step 25","Turning Right");
         telemetry.update();
-        turnTo(0,0.1);
+        turnTo(0,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 26","Drving Forward");
         telemetry.update();
-        drive(6,0.2);
+        drive(6,0.3);
         TelemeryClear();
 
         telemetry.addData("Step 27","Turning Right");
         telemetry.update();
-        turnTo(-90,0.1);
+        turnTo(-90,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 28","Driving Forward");
         telemetry.update();
-        drive(7,0.2);
+        drive(7,0.3);
         ClawPos(0.4);
         sleep(500);
         Arm.setTargetPosition(100);
@@ -215,39 +215,39 @@ public class Ex extends Base {
 
         telemetry.addData("Step 29","Turning Left");
         telemetry.update();
-        turnTo(90,0.1);
+        turnTo(90,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 29","Driving Forward");
         telemetry.update();
-        drive(17,0.2);
+        drive(17,0.3);
         TelemeryClear();
         ClawPos(0.55);
 
         telemetry.addData("Step 30","Drivng Backwards");
         telemetry.update();
-        drive(-10,0.2);
+        drive(-10,0.3);
         Arm.setTargetPosition(0);
         TelemeryClear();
 
         telemetry.addData("Step 31","Turning Right");
         telemetry.update();
-        turnTo(0,0.1);
+        turnTo(0,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 32","Driving Forward");
         telemetry.update();
-        drive(6,0.2);
+        drive(6,0.3);
         TelemeryClear();
 
         telemetry.addData("Step 33","Turning Right");
         telemetry.update();
-        turnTo(-90,0.1);
+        turnTo(-90,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 34","Driving Forward");
         telemetry.update();
-        drive(7,0.2);
+        drive(7,0.3);
         ClawPos(0.4);
         sleep(500);
         Arm.setTargetPosition(100);
@@ -255,59 +255,59 @@ public class Ex extends Base {
 
         telemetry.addData("Step 35","Driving Backwards");
         telemetry.update();
-        drive(-10,0.2);
+        drive(-10,0.3);
         TelemeryClear();
 
         telemetry.addData("Step 36","Turning Right");
         telemetry.update();
-        turnTo(-180,0.1);
+        turnTo(-180,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 37","Driving Forwards");
         telemetry.update();
-        drive(6,0.2);
+        drive(6,0.3);
         TelemeryClear();
 
         telemetry.addData("Step 38","Turning Right");
         telemetry.update();
-        turnTo(-270,0.1);
+        turnTo(-270,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 39","Driving Forwards");
         telemetry.update();
-        drive(10,0.2);
+        drive(10,0.3);
         TelemeryClear();
         ClawPos(0.55);
 
         telemetry.addData("Step 40","Driving Backwards");
         telemetry.update();
-        drive(10,0.2);
+        drive(10,0.3);
         TelemeryClear();
         Arm.setTargetPosition(0);
 
         telemetry.addData("Step 41","Turning Right");
         telemetry.update();
-        turnTo(-0,0.1);
+        turnTo(-0,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 42","Driving Forwards");
         telemetry.update();
-        drive(34.5,0.2);
+        drive(34.5,0.3);
         TelemeryClear();
 
         telemetry.addData("Step 43","Turning Right");
         telemetry.update();
-        turnTo(-90,0.1);
+        turnTo(-90,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 44","Driving Forwards");
         telemetry.update();
-        drive(17,0.2);
+        drive(17,0.3);
         TelemeryClear();
 
         telemetry.addData("Step 45","Turning Left");
         telemetry.update();
-        turnTo(0,0.1);
+        turnTo(0,0.2);
         TelemeryClear();
 
         telemetry.addData("Step 46", "Signaling Ready For Pass-off");
@@ -320,12 +320,175 @@ public class Ex extends Base {
             ++test;
 
             if(test > 5){
+                Arm.setTargetPosition(0);
+                test = 0;
+                break;
+            }
+        }
+        TelemeryClear();
+        telemetry.addData("Step 47","Driving Forward");
+        telemetry.update();
+        TelemeryClear();
+        Sensor(36);
+        int distanceTravelTicks = LeftWheel.getCurrentPosition();
+        double distanceTravelInches = distanceTravelTicks / COUNTS_PER_INCH;
+        ClawPos(0.55);
+        sleep(400);
+        Arm.setTargetPosition(30);
+
+        telemetry.addData("Step 48","Driving Backwards");
+        telemetry.update();
+        drive(-distanceTravelInches,0.3);
+        TelemeryClear();
+
+        telemetry.addData("Step 49","Turning Left");
+        telemetry.update();
+        turnTo(90,0.2);
+        TelemeryClear();
+
+        telemetry.addData("Step 50","Driving Forward");
+        telemetry.update();
+        drive(17,0.3);
+        TelemeryClear();
+
+        telemetry.addData("Step 51","Turning Left");
+        telemetry.update();
+        turnTo(180,0.2);
+        TelemeryClear();
+
+        telemetry.addData("Step 52","Driving Forward");
+        telemetry.update();
+        drive(62,0.3);
+        TelemeryClear();
+
+        telemetry.addData("Step 53","Turning Left");
+        telemetry.update();
+        turnTo(-90,0.2);
+        TelemeryClear();
+
+        telemetry.addData("Step 54","Driving Forwards");
+        telemetry.update();
+        drive(10,0.3);
+        TelemeryClear();
+        Arm.setTargetPosition(0);
+        sleep(500);
+        ClawPos(0.4);
+        sleep(500);
+
+        telemetry.addData("Step 55","Driving Backwards");
+        telemetry.update();
+        drive(-10,0.3);
+        TelemeryClear();
+
+        telemetry.addData("Step 56","turning Left");
+        telemetry.update();
+        turnTo(0,0.2);
+        TelemeryClear();
+
+        telemetry.addData("Step 57","Driving Forwards");
+        telemetry.update();
+        drive(62,0.3);
+        TelemeryClear();
+
+        telemetry.addData("Step 57","Turning Right");
+        telemetry.update();
+        turnTo(-90,0.2);
+        TelemeryClear();
+
+        telemetry.addData("Step 59","Driving Forward");
+        telemetry.update();
+        drive(17,0.3);
+        TelemeryClear();
+
+        telemetry.addData("Step 60","Turning Left");
+        telemetry.update();
+        turnTo(0,0.2);
+        TelemeryClear();
+
+        telemetry.addData("Step 61", "Signaling Ready For Pass-off");
+        Arm.setTargetPosition(80);
+        while(true){
+            ClawPos(.4);
+            sleep(500);
+            ClawPos(.55);
+            sleep(500);
+            ++test;
+
+            if(test > 5){
+                Arm.setTargetPosition(0);
+                test = 0;
                 break;
             }
         }
         TelemeryClear();
 
+        telemetry.addData("Step 62", "Driving Forward");
+        telemetry.update();
+        TelemeryClear();
         Sensor(36);
+         distanceTravelTicks = LeftWheel.getCurrentPosition();
+         distanceTravelInches = distanceTravelTicks / COUNTS_PER_INCH;
+
+        telemetry.addData("Step 63","Driving Backwards");
+        telemetry.update();
+        drive(-distanceTravelInches,0.3);
+        TelemeryClear();
+
+        telemetry.addData("Step 64","Turning Left");
+        telemetry.update();
+        turnTo(90,0.2);
+        TelemeryClear();
+
+        telemetry.addData("Step 65","Driving Forward");
+        telemetry.update();
+        drive(17,0.3);
+        TelemeryClear();
+
+        telemetry.addData("Step 66","Turning Left");
+        telemetry.update();
+        turnTo(180,0.2);
+        TelemeryClear();
+
+        telemetry.addData("Step 67","Driving Forward");
+        telemetry.update();
+        drive(62,0.3);
+        TelemeryClear();
+
+        telemetry.addData("Step 68","Turning Left");
+        telemetry.update();
+        turnTo(-90,0.2);
+        TelemeryClear();
+
+        telemetry.addData("Step 69","Driving Forwards");
+        telemetry.update();
+        drive(10,0.3);
+        TelemeryClear();
+        Arm.setTargetPosition(0);
+        sleep(500);
+        ClawPos(0.4);
+        sleep(500);
+
+        telemetry.addData("Step 70","Driving Backwards");
+        telemetry.update();
+        drive(-10,0.3);
+        TelemeryClear();
+
+        telemetry.addData("Final Step","CELEBRATE!!!");
+        telemetry.update();
+        while(true){
+            ClawPos(.4);
+            sleep(500);
+            ClawPos(.55);
+            sleep(500);
+            ++test;
+
+            if(test > 10){
+                Arm.setTargetPosition(0);
+                test = 0;
+                break;
+            }
+        }
+
     }
 
     public void turnTo(double targetAngle, double maxTurnSpeed) {
@@ -464,7 +627,7 @@ public class Ex extends Base {
         }
 
         if (!opModeIsActive() && getDistance() < 30 && Check == 10) return;
-        double driveSpeed = 0.2;
+        double driveSpeed = 0.3;
 
         LeftWheel.setPower(driveSpeed);
         RightWheel.setPower(driveSpeed);
@@ -498,13 +661,13 @@ public class Ex extends Base {
 
         telemetry.addLine("Step 2: Turning backwards");
         telemetry.update();
-        turnTo(180, 0.1);
+        turnTo(180, 0.2);
         Arm.setTargetPosition(70);
         sleep(500);
 
         telemetry.addLine("Step 3: Driving to starting location");
         telemetry.update();
-        drive(distanceTravelInches,0.2);
+        drive(distanceTravelInches,0.3);
         ClawPos(0.55);
 
         telemetry.addLine("Autonomous Finished!");
